@@ -4,7 +4,7 @@
 
 Developers often face challenges when working with new codebases, spending significant time on code comprehension. Research indicates that developers dedicate approximately **58%** of their work time to understanding programs, particularly in open-source environments where libraries are frequently utilized [1].
 
-Given those constraints, in this project, I have developed a chatbot utilizing RAG and multi-agent to understand the whole given codebase. This chatbot is developed as a tool for developers to efficiently comprehend the codebase and spend more time on doing their jobs.
+To address this issue, I have developed a chatbot that employs Retrieval-Augmented Generation (RAG) and a multi-agent architecture, designed to assist developers in efficiently understanding their codebases. This tool aims to enhance productivity by allowing developers to focus more on their core tasks.
 
 ## ⚙️ Workflow
 
@@ -12,7 +12,7 @@ Given those constraints, in this project, I have developed a chatbot utilizing R
 
 ### 1. Chunking
 
-As code and non-code files (documentation…) has every different architecture, separate splitter is required for each file type. 
+Given the varying architectures of code and non-code files (such as documentation), distinct splitters are required for each file type:
 
 - **Non-code files: `SentenceSplitter`** to chunk the documents
 - **Code files:**
@@ -24,28 +24,27 @@ As code and non-code files (documentation…) has every different architecture, 
 
 ### 2. Tools
 
-- **Vector Query Engine:** useful to answer questions related to information of the codebase provided in the documentation files.
-    - Example questions:
+- **Vector Query Engine:** Designed to answer questions related to the information contained in documentation files.
+    - **Example questions**:
         - "Hi, can you tell what is ultralytics?"
         - "Can you summarize the README file?"
         - "What are the installation instructions provided in the README?"
 
-- **Code Query Engine** (`create_code_hierarchy_engine()`): useful to find the implementation of a function or class in the codebase and understand the structure of the codebase.
-    - Example questions:
+- **Code Query Engine** (`create_code_hierarchy_engine()`): Facilitates finding the implementation of functions or classes within the codebase and understanding its structure.
+    - **Example questions:**
         - "What files are in the `src/` directory?"
         - "Show me the implementation of the `main()` function."
         - "What classes are defined in `common.py`?"
         - "What are the imports in `utils.py`?"
 
 - **Search Code Engine** (`code_search.py`):  useful for searching a term or pattern in all files within a directory, such as to find where the function is used within the repository.
-    - Example questions:
+    - **Example questions:**
         - "Where is the `config` variable used in this repository?"
         - "Which files import the `utils` module?"
         - "Which functions call the `process_data()` function?"
 
 ### 3. Agent
-
-Using `OpenAIAgent` to call OpenAI to decide which tool to call and with what arguments.
+The system employs an `OpenAIAgent` to interact with OpenAI's API, determining which tool to invoke and with what parameters.
 
 ## Reference
 

@@ -1,5 +1,3 @@
-# README
-
 # Repo-Chatbot: Chat With Your Github Repository
 
 ## 🤖 Background

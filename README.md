@@ -31,12 +31,14 @@ As code and non-code files (documentation…) has every different architecture, 
         - "Hi, can you tell what is ultralytics?"
         - "Can you summarize the README file?"
         - "What are the installation instructions provided in the README?"
+
 - **Code Query Engine** (`create_code_hierarchy_engine()`): useful to find the implementation of a function or class in the codebase and understand the structure of the codebase.
     - Example questions:
         - "What files are in the `src/` directory?"
         - "Show me the implementation of the `main()` function."
         - "What classes are defined in `common.py`?"
         - "What are the imports in `utils.py`?"
+
 - **Search Code Engine** (`code_search.py`):  useful for searching a term or pattern in all files within a directory, such as to find where the function is used within the repository.
     - Example questions:
         - "Where is the `config` variable used in this repository?"
